@@ -6,13 +6,10 @@ def substrings (text, dictionary=[])
       set_sub = Set.new 
       word = word.tr('^a-zA-Z', "").downcase
       for i in 0...(word.length) do
-        if word[i...word.length] == entry
-          set_sub.add(entry)
-        end
-      end
-      for i in 0...(word.length) do
-        if word[0..i] == entry
-          set_sub.add(entry)
+        for k in 0...(word.length) do
+          if word[i..k] == entry
+            set_sub.add(entry)
+          end
         end
       end
       set_sub.each { |to_hash| result[to_hash] += 1 }
